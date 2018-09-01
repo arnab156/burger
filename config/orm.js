@@ -28,7 +28,6 @@ function printQuestionMarks(num) {
         arr.push(key + "=" + value);
       }
     }
-  
     // translate array of strings to a single comma-separated string
     return arr.toString();
   }
@@ -54,7 +53,8 @@ var orm = {
       queryString += printQuestionMarks(vals.length);
       queryString += ") ";
   
-      console.log(queryString);
+      console.log("QUERY STRING HERE ^^^^^^ "+queryString);
+      console.log("vals: " + vals )
   
       connection.query(queryString, vals, function(err, result) {
         if (err) {
@@ -73,7 +73,7 @@ var orm = {
       queryString += " WHERE ";
       queryString += condition;
   
-      console.log(queryString);
+      console.log("QUERY STRING HERE BDOBEOJBFOJEBOFJB "+queryString);
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;

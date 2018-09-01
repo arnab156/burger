@@ -1,21 +1,27 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $(".change-devoured").on("click", function(event) {
+  $(".change-burger").on("click", function(event) {
+    // alert ("we are here in burger js");
     var id = $(this).data("id");
     var newDevoured = $(this).data("newdevoured");
+    console.log("&&&&&&&&&&&&&& in public burger js"+newDevoured);
 
-    var newDevouredState = {
-      devoured: newdevoured
-    };
-
-    // Send the PUT request.
+    if (newDevoured === false) {
+      var newDevouredState = {
+        devoured: true
+      };
+    } else{
+      var newDevouredState = {
+        devoured: false
+      };
+    }
+    // console.log("%%%%%%%%%%%%%%%%% in public burger js: "+newDevouredState);
+    // console.log("%%%%%%%%%%%%%%%%% in public burger js: "+newDevouredState.devoured);
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: newDevouredState
-    }).then(
-      function() {
+    }).then(function() {
         console.log("changed sleep to", newDevoured);
-        // Reload the page to get the updated list
         location.reload();
       }
     );
@@ -26,10 +32,13 @@ $(function() {
     event.preventDefault();
 
     var newBurger = {
-      name: $("#ca").val().trim(),
-      sleepy: $("[name=devoured]:checked").val().trim()
+      burger_name: $("#ca").val().trim(),
+      devoured: $("[name=devoured]:checked").val().trim()
     };
 
+    // console.log("new burger is: " + newBurger);
+    // console.log("new burger is: " + newBurger.name);
+    // console.log("new burger is: " + newBurger.devoured);
     // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
@@ -37,11 +46,13 @@ $(function() {
     }).then(
       function() {
         console.log("created new burger");
-        // Reload the page to get the updated list
         location.reload();
       }
     );
   });
+
+
+  app.use(express.static('public'));
 
   // $(".delete-burger").on("click", function(event) {
   //   var id = $(this).data("id");

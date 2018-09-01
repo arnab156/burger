@@ -1,7 +1,8 @@
 li {
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
+    background: none;
+    color: orangered;
   }
   
   .label {
@@ -18,3 +19,7 @@ li {
     margin-bottom: 5px;
   }
   
+  body{
+    color: white;
+    background-color: orange;
+  }
