@@ -2,7 +2,11 @@ li {
     padding: 5px;
     margin: 5px;
     background: none;
-    color: orangered;
+    /* color: orangered; */
+  }
+
+ul {
+    list-style: none;
   }
   
   .label {
@@ -20,6 +24,5 @@ li {
   }
   
   body{
-    color: white;
     background-color: orange;
   }

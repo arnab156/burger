@@ -1,26 +1,46 @@
-<h1>Burgers!</h1>
+<center> 
 
-<img src="https://cbsnews3.cbsistatic.com/hub/i/r/2018/03/07/481a9418-c3c8-492e-8e92-d1e6ec821075/crop/316x284+89+74/resize/270x/47b7fc47127620982695ad69887be491/sonic-burger.jpg" alt = "burger">
+  <div class="jumbotron jumbotron-fluid" style="background-color:white;>
+  <div class="container" style="background-color:none;">
+    <h1 class="display-4">Eat-dé-Burger</h1>
+    <img src="https://cbsnews3.cbsistatic.com/hub/i/r/2018/03/07/481a9418-c3c8-492e-8e92-d1e6ec821075/crop/316x284+89+74/resize/270x/47b7fc47127620982695ad69887be491/sonic-burger.jpg" alt = "burger">
+    {{!-- <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> --}}
+  </div>
+  </div>
 
-<h2>Burgers that are not devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Burgers that are not devoured!</h2>
+      <ul>
+        {{#each burgers}}
+          {{#unless devoured}}
+            {{> burgers/burger-block devoured=false}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Burgers that are devoured!</h2>
+        <ul>
+          {{#each burgers}}
+            {{#if devoured}}
+              {{> burgers/burger-block devoured=true}}
+            {{/if}}
+          {{/each}}
+        </ul>
+    </div>
+  </div>
+  </div>
 
-<h2>Burgers that are devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/if}}
-  {{/each}}
-</ul>
+
+
+
+
+
+
 
 <h2>Add a Burger</h2>
 <form class="create-form">
@@ -35,5 +55,7 @@
     <input type="radio" name="devoured" value="0" checked> No<br>
     <input type="radio" name="devoured" value="1"> Yes</div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit" class="btn btn-success">Add Burger</button>
 </form>
+
+</center>
