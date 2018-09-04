@@ -1,5 +1,7 @@
 -- In this file, write insert queries to populate the `burgers` table with at least three entries.
 
+-- heroku config:get jawsdb-cubic-94621 --app arnab-burger
+
 INSERT INTO burgers (burger_name, devoured) VALUES ('Cheese Burger', false);
 INSERT INTO burgers (burger_name, devoured) VALUES ('Chunky Cheese Onion Burger', true);
 INSERT INTO burgers (burger_name, devoured) VALUES ('Ham Burger', false);
